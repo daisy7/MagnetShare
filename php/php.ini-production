@@ -1945,3 +1945,11 @@ ldap.max_links = -1
 
 ; List of headers files to preload, wildcard patterns allowed.
 ;ffi.preload=
+
+[Xdebug]
+zend_extension = /var/www/html/xdebug.so
+xdebug.remote_enable=1
+xdebug.remote_autostart=1
+xdebug.remote_host=10.181.96.116
+xdebug.remote_port=9001
+xdebug.remote_handler=dbgp

@@ -11,7 +11,8 @@ html, table {
 }
 
 body {
-  background: #dee2e6;
+  /* background: #dee2e6; */
+  background: url(../img/bg.png)
 }
 
 html, body {
@@ -299,4 +300,29 @@ li.quote {
 #nav_pc_2 .active a {
   color: #fff;
   font-weight: 800;
+}
+
+.card-body .message h5 {
+  border-left: 4px solid #84985a;
+  text-indent: 8px;
+  font-weight: bold;
+  padding: 2px 0px;
+  margin: 8px 0px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: rgb(66, 184, 221);;
+  border-color: rgb(66, 184, 221);;
+}
+
+a {
+  color: #1f4977;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+a:link, a:visited, a:hover {
+  text-decoration: none;
 }
