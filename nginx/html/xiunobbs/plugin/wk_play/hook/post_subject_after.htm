@@ -1,0 +1,95 @@
+<?php if($isfirst) { ?>
+<div class="form-group input-group" id="form-group-radio">
+    <div class="custom-input">
+        <button type="button" id="buy_cotent_button" onclick="$('#insert_media_modal').modal()"
+            class="btn btn-sm btn-primary  pt-0 pb-0">插入音乐/MV播放</button>
+        <button type="button" id="buy_cotent_button" onclick="$('#insert_link_modal').modal()"
+            class="btn btn-sm btn-primary ml-2 pt-0 pb-0">插入下载地址</button>
+    </div>
+</div>
+<div class="modal fade" id="insert_media_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" style="max-width:600px!important;margin-top:150px!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">音乐/MV播放</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="min-width:92px;">音乐播放地址</span></div>
+                    <input type="text" name="insert_audio" id="insert_audio" class="form-control" placeholder="请输入网易云音乐id">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="min-width:92px;">MV播放地址</span></div>
+                    <input type="text" name="insert_video" id="insert_video" class="form-control" placeholder="请输入网易云MV id">
+                </div>
+            </div>
+            <div class="modal-footer"><button type="button" class="btn btn-default"
+                    data-dismiss="modal">取消</button><button type="button" class="btn btn-primary"
+                    onclick="insert_media_submit_modal()">确定</button></div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="insert_link_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" style="max-width:600px!important;margin-top:150px!important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">下载地址:</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="min-width:92px;">链接地址</span></div>
+                    <input type="text" name="insert_link" id="insert_link" class="form-control" placeholder="请输入链接地址">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend"><span class="input-group-text" style="min-width:92px;letter-spacing:1px;">提取码</span></div>
+                    <input type="text" name="insert_code" id="insert_code" class="form-control" placeholder="默认隐藏, 回复可见" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="insert_link_submit_modal()">确定</button></div>
+        </div>
+    </div>
+</div>
+<script>
+    function insert_media_submit_modal() {
+        $("#insert_media_modal").modal("hide");
+        var editor = window.parent.window.UM.getEditor('message');
+        var insert_audio = $('#insert_audio').val();
+        if (insert_audio) {
+            var section = "x_audio";
+            var match = eval(String.raw`/\[${section}\]${insert_audio}\[\/${section}\]/i`);
+            if (editor.getContent().match(match) == null) {
+                var inner = `[${section}]${insert_audio}[/${section}]`
+                editor.setContent(inner, 1);
+            }
+        }
+        var insert_video = $('#insert_video').val();
+        if(insert_video) {
+            var section = "x_video";
+            var match = eval(String.raw`/\[${section}\]${insert_video}\[\/${section}\]/i`);
+            if (editor.getContent().match(match) == null) {
+                var inner = `[${section}]${insert_video}[/${section}]`
+                editor.setContent(inner, 1);
+            }
+        }
+    }
+    function insert_link_submit_modal() {
+        $("#insert_link_modal").modal("hide");
+        var editor = window.parent.window.UM.getEditor('message');
+        var insert_link = $('#insert_link').val();
+        var insert_code = $('#insert_code').val();
+        if (insert_link && insert_code) {
+            var section = "x_reply";
+            var match = eval(String.raw`/\[${section}\]${insert_code}\[\/${section}\]/i`);
+            if (editor.getContent().match(match) == null) {
+                var inner = `<h5>下载</h5><a href="${insert_link}" target="_blank">${insert_link}</a><br/><h5>提取码</h5>[${section}]${insert_code}[/${section}]`
+                editor.setContent(inner, 1);
+            }
+        }
+    }
+</script>
+<?php } ?>

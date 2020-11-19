@@ -45,3 +45,9 @@ services:
     restart: always
     ports:
       - 8080:8080
+  netease_cloud_music_api:
+    build: ./NeteaseCloudMusicApi-3.47.2
+    container_name: netease_cloud_music_api
+    restart: always
+    ports:
+      - 3000:3000

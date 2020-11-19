@@ -1,0 +1,14 @@
+{
+    "name": "媒体播放集合",
+    "brief": "音频/MV, 网盘分享, 回复查看",
+    "version": "1.0",
+    "bbs_version": "4.0.4",
+    "installed": 1,
+    "enable": 1,
+    "hooks_rank": {
+        "post_post_end.php": 1000,
+        "thread_create_thread_end.php": 1000
+    },
+    "overwrites_rank": [],
+    "dependencies": []
+}
