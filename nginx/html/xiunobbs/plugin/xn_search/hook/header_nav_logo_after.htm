@@ -1,0 +1,51 @@
+<style>
+    .search {
+        position: relative;
+    }
+
+    .search input, .search button {
+        border: none;
+        outline: none;
+    }
+
+    .search button {
+        width: 3rem;
+        cursor: pointer;
+        position: absolute;
+    }
+    .search input {
+        width: 11rem;
+        border-radius: 42px;
+        border: 2px solid #324B4E;
+        background:#F9F0DA;
+        transition: .3s linear;
+        float: right;
+    }
+    .search input:focus {
+        width: 17rem;
+        color:  #324B4E;
+    }
+    .search button {
+        background: none;
+        top:0.4rem;
+        right: 0;
+        color:  #324B4E;
+    }
+    .search button:before{
+        content: "\f002";
+        font-family: FontAwesome;
+        color:  #324B4E;
+    }
+</style>
+<form name="search" class="search" action="<?php echo url('search');?>">
+    <input type="text" class="form-control" placeholder="<?php echo lang('keyword');?>" name="keyword" value="">
+    <button type="submit"></button>
+</form>
+<script>
+// document.forms['search'].submit(function(){
+//     var keyword = document.querySelector('#search input[name="keyword"]').value;
+// 	var url = xn.url('search-'+xn.urlencode(keyword));
+// 	window.location = url;
+// 	return false;
+// })
+</script>

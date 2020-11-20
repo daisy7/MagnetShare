@@ -6,4 +6,10 @@ RUN sed -i 's#deb.debian.org#mirrors.aliyun.com#g' /etc/apt/sources.list \
         libjpeg62-turbo-dev \
         libpng-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd pdo_mysql
+    && docker-php-ext-install -j$(nproc) gd pdo_mysql \
+    && wget https://github.com/laruence/yac/archive/yac-2.2.1.zip \
+    && unzip yac*.zip \
+    && cd yac* \
+    && phpize \
+    && ./configure --with-php-config=/usr/local/bin/php-config \
+    && make && make install

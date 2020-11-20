@@ -7,8 +7,8 @@ return array (
     array (
       'master' => 
       array (
-        'host' => '47.111.16.6',
-        'user' => 'root',
+        'host' => 'mysql',
+        'user' => 'MagnetShare',
         'password' => 'mysql&7',
         'name' => 'MagnetShare',
         'tablepre' => 'bbs_',
@@ -23,8 +23,8 @@ return array (
     array (
       'master' => 
       array (
-        'host' => '47.111.16.6',
-        'user' => 'root',
+        'host' => 'mysql',
+        'user' => 'MagnetShare',
         'password' => 'mysql&7',
         'name' => 'MagnetShare',
         'tablepre' => 'bbs_',
@@ -77,15 +77,15 @@ return array (
   'logo_mobile_url' => 'view/img/logo.png',
   'logo_pc_url' => 'view/img/logo.png',
   'logo_water_url' => 'view/img/water-small.png',
-  'sitename' => '',
-  'sitebrief' => '磁力分享MagnetShare是一个音乐/电影资源互相分享的平台,为了解决最新的音乐/电影方便搜索分享, 分享者互帮互助, 如果您有资源需求, 请注册账号并发布信息、详细描述需要的信息等, 我们会尽力帮您寻找',
+  'sitename' => 'Xiuno BBS',
+  'sitebrief' => 'Site Brief',
   'timezone' => 'Asia/Shanghai',
   'lang' => 'zh-cn',
   'runlevel' => 5,
   'runlevel_reason' => 'The site is under maintenance, please visit later.',
   'cookie_domain' => '',
   'cookie_path' => '',
-  'auth_key' => 'T8UC3E57J489F9RC89W9QAA8KX85UMS7ZUEX4DBDZNHTZEYA9U88U9BPC6WH9GNR',
+  'auth_key' => 'D9USY9YY9MESAM39AE6M9WP22C7MHBJVX3EY4F8US8UUXXGWD2QNFHDSGHPRF4NC',
   'pagesize' => 20,
   'postlist_pagesize' => 100,
   'cache_thread_list_pages' => 10,
@@ -96,7 +96,7 @@ return array (
   'order_default' => 'lastpid',
   'attach_dir_save_rule' => 'Ym',
   'update_views_on' => 1,
-  'user_create_email_on' => 0,
+  'user_create_email_on' => 1,
   'user_create_on' => 1,
   'user_resetpw_on' => 1,
   'admin_bind_ip' => 0,

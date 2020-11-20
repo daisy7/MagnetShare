@@ -1947,9 +1947,17 @@ ldap.max_links = -1
 ;ffi.preload=
 
 [Xdebug]
-zend_extension = /var/www/html/xdebug.so
+zend_extension = /var/www/html/xdebug-2.9.8/modules/xdebug.so
 xdebug.remote_enable=1
 xdebug.remote_autostart=1
-xdebug.remote_host=10.181.96.116
+xdebug.remote_host=47.111.16.6
 xdebug.remote_port=9001
 xdebug.remote_handler=dbgp
+
+extension=/var/www/html/yac-yac-2.2.1/modules/yac.so
+yac.enable = 1
+yac.keys_memory_size = 4M ; 4M can get 30K key slots, 32M can get 100K key slots
+yac.values_memory_size = 64M
+yac.compress_threshold = -1
+yac.enable_cli = 0 ; whether enable yac with cli, default 0
+yac.serializer = php ; since yac 2.2.0 , specific seralizer yac used could be json(--enable-json), msgpack(--enable-msgpack) or igbinary(--enable-igbinary)

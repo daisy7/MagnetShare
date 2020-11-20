@@ -15,11 +15,11 @@ services:
       - ./nginx/html:/usr/share/nginx/html
 
   php-fpm:
-    build: .
+    build: ./php
     container_name: php
     restart: always
-    ports:
-      - 9000:9000
+    # ports:
+    #   - 9000:9000
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./php/php.ini-production:/usr/local/etc/php/php.ini:ro
@@ -36,8 +36,8 @@ services:
       - ./mysql/conf:/etc/mysql/conf.d：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。
       - ./mysql/logs:/logs：将主机当前目录下的 logs 目录挂载到容器的 /logs。
       - ./mysql/data:/var/lib/mysql ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。
-    ports:
-      - 3306:3306
+    # ports:
+    #   - 3306:3306
 
   adminer:
     image: adminer
@@ -45,9 +45,10 @@ services:
     restart: always
     ports:
       - 8080:8080
+
   netease_cloud_music_api:
     build: ./NeteaseCloudMusicApi-3.47.2
     container_name: netease_cloud_music_api
     restart: always
-    ports:
-      - 3000:3000
+    # ports:
+    #   - 3000:3000

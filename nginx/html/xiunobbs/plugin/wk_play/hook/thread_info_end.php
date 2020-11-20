@@ -11,7 +11,7 @@ if($preg_play) {
         $song_ids = str_replace('&nbsp;','',$array_play[1][$i]);
         foreach(explode(',',$song_ids) as $key => $value){
             $song_id = trim($value);
-            $json = file_get_contents('http://47.111.16.6:3000/song/url?id='.$song_id);
+            $json = file_get_contents('http://netease_cloud_music_api:3000/song/url?id='.$song_id);
             $song_info = json_decode($json);
             if($song_info) {
                 if($song_info->code != 200) {
@@ -20,7 +20,7 @@ if($preg_play) {
                     $song_url = $song_info->data[0]->url;
                 }
             }
-            $json = file_get_contents('http://47.111.16.6:3000/song/detail?ids='.$song_id);
+            $json = file_get_contents('http://netease_cloud_music_api:3000/song/detail?ids='.$song_id);
             $song_detail = json_decode($json);
             if($song_detail) {
                 if($song_detail->code != 200) {
@@ -64,7 +64,7 @@ if($preg_play) {
         $video_ids = str_replace('&nbsp;','',$array_play[1][$i]);
         foreach(explode(',',$video_ids) as $key => $value){
             $video_id = trim($value);
-            $json = file_get_contents('http://47.111.16.6:3000/mv/url?id='.$video_id);
+            $json = file_get_contents('http://netease_cloud_music_api:3000/mv/url?id='.$video_id);
             $video_info = json_decode($json);
             if($video_info) {
                 if($video_info->code != 200) {
