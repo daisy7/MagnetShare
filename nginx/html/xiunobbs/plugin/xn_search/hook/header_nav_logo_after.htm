@@ -37,15 +37,15 @@
         color:  #324B4E;
     }
 </style>
-<form name="search" class="search" action="<?php echo url('search');?>">
+<form id="search" class="search" action="<?php echo url('search');?>">
     <input type="text" class="form-control" placeholder="<?php echo lang('keyword');?>" name="keyword" value="">
     <button type="submit"></button>
 </form>
 <script>
-// document.forms['search'].submit(function(){
-//     var keyword = document.querySelector('#search input[name="keyword"]').value;
-// 	var url = xn.url('search-'+xn.urlencode(keyword));
-// 	window.location = url;
-// 	return false;
-// })
+document.forms['search'].onsubmit = function() {
+	var keyword = document.querySelector('#search input[name="keyword"]').value;
+	var url = xn.url('search-'+xn.urlencode(keyword));
+	window.location = url;
+	return false;
+};
 </script>

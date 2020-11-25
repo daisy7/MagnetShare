@@ -12,4 +12,11 @@ RUN sed -i 's#deb.debian.org#mirrors.aliyun.com#g' /etc/apt/sources.list \
     && cd yac* \
     && phpize \
     && ./configure --with-php-config=/usr/local/bin/php-config \
+    && make && make install \
+    && cd .. \
+    && wget https://github.com/xdebug/xdebug/archive/2.9.8.zip \
+    && unzip 2.9.8.zip \
+    && cd xdebug* \
+    && phpize \
+    && ./configure \
     && make && make install
